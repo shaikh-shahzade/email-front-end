@@ -1,0 +1,70 @@
+<div ngClass="email-body">
+<div class="container">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm" >
+        <h1>Send Email...</h1>
+    <div class="row justify-content-center align-items-center g-2">
+        <div class="col">
+            <mat-form-field appearance="outline">
+            <mat-label>To</mat-label>
+            <input ngModel name="to" required email matInput placeholder="Enter recipient email">
+            <mat-icon matSuffix>contact_mail</mat-icon>
+             <mat-hint *ngIf="f.controls.to&& !f.controls.to.valid&&f.controls.to.touched ">Please enter valid email Id</mat-hint> 
+            
+          
+        </mat-form-field>
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center align-items-center g-2">
+        <div class="col">
+            <mat-form-field appearance="outline">
+            <mat-label>CC</mat-label>
+            <input ngModel name="cc"  email matInput placeholder="CC">
+            <mat-icon matSuffix>address</mat-icon>
+            <mat-hint *ngIf="f.controls.cc&& !f.controls.cc.valid&&f.controls.cc.touched ">Invalid CC</mat-hint> 
+        </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center g-2">
+        <div class="col">
+            <mat-form-field appearance="outline">
+            <mat-label>Subject</mat-label>
+            <input ngModel name="subject" matInput placeholder="start typing Subject" type="text">
+            <mat-icon matSuffix>subject</mat-icon>
+            
+          </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center g-2">
+        <div class="col"><mat-form-field class="example-full-width">
+            <mat-label>Message</mat-label>
+            <mat-hint *ngIf="f.controls.message&& !f.controls.message.valid&&f.controls.message.touched ">Please enter message...</mat-hint> 
+            
+            <textarea ngModel name="message" required="" matInput placeholder="Start typing message..."></textarea>
+          </mat-form-field></div>
+        
+    </div>
+    
+    <div class="row justify-content-center align-items-center g-2">
+        <div class="col">
+            <button mat-raised-button [disabled]="!f.valid" color="primary" type="submit">Send</button>
+            <button mat-raised-button color="warn" type='button' (click)="resetForm(f)">Reset</button>
+        
+    </div>
+    </div>
+</form>
+
+<div class="row justify-content-center align-items-center g-2">
+  <p > {{emailData.to}}</p>
+  <p > {{emailData.cc}}</p>
+  <p > {{emailData.subject}}</p>
+  <p > {{emailData.message}}</p>
+</div>
+
+
+</div>
+
+</div>
