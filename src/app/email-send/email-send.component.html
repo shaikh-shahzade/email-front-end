@@ -9,8 +9,6 @@
             <input ngModel name="to" required email matInput placeholder="Enter recipient email">
             <mat-icon matSuffix>contact_mail</mat-icon>
              <mat-hint *ngIf="f.controls.to&& !f.controls.to.valid&&f.controls.to.touched ">Please enter valid email Id</mat-hint> 
-            
-          
         </mat-form-field>
         </div>
     </div>
@@ -57,11 +55,12 @@
     </div>
 </form>
 
-<div class="row justify-content-center align-items-center g-2">
-  <p > {{emailData.to}}</p>
-  <p > {{emailData.cc}}</p>
-  <p > {{emailData.subject}}</p>
-  <p > {{emailData.message}}</p>
+<div  class="email-body-showcase row  g-2">
+    <h3 *ngIf="emailData.to || emailData.subject || emailData.cc || emailData.message" >Email Body:</h3>
+   <p *ngIf="emailData.to" >Name: {{emailData.to}}</p>
+  <p  *ngIf="emailData.cc"> CC: {{emailData.cc}}</p>
+  <p  *ngIf="emailData.subject" > Subject: {{emailData.subject}}</p>
+  <p  *ngIf="emailData.message"> Message: {{emailData.message}}</p>
 </div>
 
 
