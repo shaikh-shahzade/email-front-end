@@ -5,15 +5,19 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
-  path:"sendemail",
+  path:"sendmail",
   pathMatch:"full",
   component:EmailSendComponent
+  },
+  {
+    path:"home",
+    pathMatch:"full",
+    component:HomeComponent
   },
   {
     path:"",
     pathMatch:"full",
     component:HomeComponent
-    
   }
 ];
 
