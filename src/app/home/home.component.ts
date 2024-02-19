@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
 
   emailPage()
   {
-    this.router.navigate(["sendemail"])
+    this.router.navigate(["sendmail"])
   }
 
   constructor(private router: Router) { }
